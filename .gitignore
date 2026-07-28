@@ -41,5 +41,7 @@ yarn-error.log*
 docs/
 
 # CLAUDE
+skills-lock.json
+.agents/
 .claude/
 CLAUDE.md

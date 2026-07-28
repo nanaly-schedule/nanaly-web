@@ -6,9 +6,8 @@ import Reveal from "@/app/_components/Reveal";
 export type Screen = { src: string; alt: string; w: number; h: number };
 
 export default function FeatureRow({
-                                       eyebrow, title, desc, screen, media, reverse = false,
+                                       title, desc, screen, media, reverse = false,
                                    }: {
-    eyebrow: string;
     title: ReactNode;
     desc: ReactNode;
     screen?: Screen;
@@ -19,17 +18,12 @@ export default function FeatureRow({
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
             <Reveal dir={reverse ? "right" : "left"}
                     className={cn("flex flex-1 flex-col items-start gap-6 lg:gap-10", reverse && "lg:order-2")}>
-          <span className="inline-flex w-fit items-center rounded-full bg-primary/10 px-4 py-1.5 text-[15px] font-bold tracking-[-0.02em] text-primary sm:text-base">
-            {eyebrow}
-          </span>
-                <div className="flex flex-col gap-4">
                     <h3 className="text-[26px] font-bold leading-[1.35] tracking-[-0.02em] text-foreground sm:text-[34px] lg:text-[44px]">
                         {title}
                     </h3>
                     <p className="text-[16px] font-medium leading-[1.55] tracking-[-0.01em] text-muted-foreground sm:text-[18px] lg:text-[20px]">
                         {desc}
                     </p>
-                </div>
             </Reveal>
 
             <Reveal dir={reverse ? "left" : "right"} delay={120}

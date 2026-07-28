@@ -19,8 +19,7 @@ export default function Roles() {
     return (
         <section id="roles" className="bg-white">
             <div className={cn(CONTAINER, "py-20 lg:py-[120px]")}>
-                <Reveal className="flex flex-col gap-5 text-center lg:gap-6">
-                    <p className="text-[22px] font-bold tracking-[-0.02em] text-primary sm:text-[28px]">역할</p>
+                <Reveal className="text-center">
                     <h2 className="text-[28px] font-bold leading-[1.4] tracking-[-0.02em] text-foreground sm:text-[40px] lg:text-[52px]">
                         매장의 모든 역할을
                         <br />
