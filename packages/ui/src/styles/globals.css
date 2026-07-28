@@ -80,3 +80,26 @@
         -webkit-font-smoothing: antialiased;
     }
 }
+
+html { scroll-behavior: smooth; }
+
+@layer base {
+    body { word-break: keep-all; }   /* 한글 어절 단위 줄바꿈 */
+}
+
+/* 스크롤 등장 (Reveal이 .is-visible 토글) */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+    will-change: opacity, transform;
+}
+.reveal[data-dir="left"]  { transform: translateX(-40px); }
+.reveal[data-dir="right"] { transform: translateX(40px); }
+.reveal[data-dir="scale"] { transform: scale(.94); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal[data-dir] { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+}
