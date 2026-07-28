@@ -1,6 +1,11 @@
+import ComingSoon from "@/app/_components/sections/ComingSoon";
+import Cta from "@/app/_components/sections/Cta";
+import Features from "@/app/_components/sections/Features";
+import Intro from "@/app/_components/sections/Intro";
+import Roles from "@/app/_components/sections/Roles";
 import SiteNav from "./_components/SiteNav";
 import Footer from "./_components/Footer";
-import Hero from "./_components/Hero";
+import Hero from "app/_components/sections/Hero";
 
 export default function Home() {
     return (
@@ -8,7 +13,11 @@ export default function Home() {
             <SiteNav />
             <main className="overflow-hidden bg-white">
                 <Hero />
-                {/* 다음: Intro / 핵심 / Features(스샷) / 미리보기 / CTA */}
+                <Intro />
+                <Roles />
+                <Features />
+                <ComingSoon />
+                <Cta />
             </main>
             <Footer />
         </div>
