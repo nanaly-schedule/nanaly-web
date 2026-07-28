@@ -103,3 +103,16 @@ html { scroll-behavior: smooth; }
     .reveal, .reveal[data-dir] { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
 }
+
+/* 히어로 사진: 폰 = 연한 배경 / 태블릿+(md) = 선명 + 왼쪽 페이드 */
+.hero-photo {
+    opacity: 0.15;                 /* 📱 폰 */
+}
+@media (min-width: 48rem) {      /* 💻 768px = 태블릿부터 */
+    .hero-photo {
+        opacity: 1;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+        mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+    }
+}
+
