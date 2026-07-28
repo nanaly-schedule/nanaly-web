@@ -23,7 +23,7 @@ export default function Footer() {
                             <br />
                             주소: 서울특별시 000
                             <br />
-                            문의: nanaly-schedule@gmail.com
+                            문의: nanaly.schedule@gmail.com
                         </p>
                     </div>
                     <nav className="flex items-center gap-5 text-[13px] font-medium text-muted-foreground">

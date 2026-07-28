@@ -8,9 +8,6 @@ export default function Cta() {
         <section id="cta" className="bg-gradient-to-b from-[#eaf2fe] to-white">
             <div className={cn(CONTAINER, "flex flex-col items-center gap-10 py-20 text-center lg:gap-14 lg:py-[120px]")}>
                 <Reveal className="flex flex-col items-center gap-4 lg:gap-6">
-            <span className="inline-flex items-center rounded-full border border-primary/20 bg-white px-3.5 py-1.5 text-[13px] font-semibold text-primary lg:text-sm">
-              2주 후 정식 출시
-            </span>
                     <h2 className="text-[28px] font-bold leading-[1.4] tracking-[-0.02em] text-foreground sm:text-[40px] lg:text-[48px]">
                         지금 사전예약하고
                         <br />
