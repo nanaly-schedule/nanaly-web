@@ -9,8 +9,8 @@ export default function Features() {
         <section id="features" className="bg-white">
             <div className={cn(CONTAINER, "pt-20 lg:pt-[120px]")}>
                 <Reveal className="text-center">
-                    <h2 className="text-[28px] font-bold leading-[1.4] tracking-[-0.02em] text-foreground sm:text-[40px] lg:text-[52px]">
-                        매장 운영에 필요한 것,
+                    <h2 className="text-[28px] font-extrabold leading-[1.25] tracking-[-0.03em] text-foreground sm:text-[40px] lg:text-[52px]">
+                        매장 운영에 필요한 것
                         <br />
                         나날이 하나로
                     </h2>

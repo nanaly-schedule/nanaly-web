@@ -8,7 +8,7 @@ export default function Hero() {
         <section id="hero" className="bg-gradient-to-b from-white from-[30%] to-[#eaf2fe]">
             <div className={cn(CONTAINER, "py-20 text-center lg:py-[120px]")}>
                 <Reveal as="h1"
-                        className="text-[28px] font-bold leading-[1.35] tracking-[-0.02em] text-foreground sm:text-[44px] lg:text-[64px]">
+                        className="text-[28px] font-extrabold leading-[1.2] tracking-[-0.03em] text-foreground sm:text-[44px] lg:text-[64px]">
                     매장 스케줄
                     <br />
                     <span className="text-primary">한 곳에서 정확하게</span>

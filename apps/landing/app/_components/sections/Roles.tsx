@@ -20,7 +20,7 @@ export default function Roles() {
         <section id="roles" className="bg-white">
             <div className={cn(CONTAINER, "py-20 lg:py-[120px]")}>
                 <Reveal className="text-center">
-                    <h2 className="text-[28px] font-bold leading-[1.4] tracking-[-0.02em] text-foreground sm:text-[40px] lg:text-[52px]">
+                    <h2 className="text-[28px] font-extrabold leading-[1.25] tracking-[-0.03em] text-foreground sm:text-[40px] lg:text-[52px]">
                         매장의 모든 역할을
                         <br />
                         한 앱에서

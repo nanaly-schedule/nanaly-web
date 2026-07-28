@@ -8,7 +8,7 @@ export default function Cta() {
         <section id="cta" className="bg-gradient-to-b from-[#eaf2fe] to-white">
             <div className={cn(CONTAINER, "flex flex-col items-center gap-10 py-20 text-center lg:gap-14 lg:py-[120px]")}>
                 <Reveal className="flex flex-col items-center gap-4 lg:gap-6">
-                    <h2 className="text-[28px] font-bold leading-[1.4] tracking-[-0.02em] text-foreground sm:text-[40px] lg:text-[48px]">
+                    <h2 className="text-[28px] font-extrabold leading-[1.25] tracking-[-0.03em] text-foreground sm:text-[40px] lg:text-[48px]">
                         지금 사전예약하고
                         <br />
                         가장 먼저 만나보세요
