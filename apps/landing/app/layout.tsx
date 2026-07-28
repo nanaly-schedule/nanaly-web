@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import "@repo/ui/globals.css";
 
-const SITE_URL = "https://nanaly-schedule.com";
 const TITLE = "나날이 — 매장 근무 스케줄을 한 곳에서";
 const DESCRIPTION =
     "관리자와 근무자가 같은 화면에서 근무 일정을 확인하고 공유해요. 카톡·엑셀로 흩어진 매장 스케줄을 하나로 정리하는 나날이. 지금 사전예약하세요.";
