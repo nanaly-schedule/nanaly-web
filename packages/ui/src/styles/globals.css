@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+/* 클래스 스캔 (이 파일 기준 상대경로) */
+@source '../**/*.{ts,tsx}';                 /* packages/ui/src */
+@source '../../../../apps/**/*.{ts,tsx}';   /* apps/* */
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── 나날이 브랜드 값 (앱 DS → 웹) ───────────── */
+:root {
+    --primary: #3b82f6;            /* Blue 500 — 유일한 브랜드색 */
+    --primary-foreground: #ffffff;
+
+    --background: #ffffff;
+    --foreground: #333333;         /* grey-800 (본문) */
+    --card: #ffffff;
+    --card-foreground: #333333;
+    --popover: #ffffff;
+    --popover-foreground: #333333;
+
+    --secondary: #f0f2f5;          /* bluegrey-100 */
+    --secondary-foreground: #333333;
+    --muted: #f5f7fa;              /* bluegrey-50 (앱 캔버스/섹션 배경) */
+    --muted-foreground: #575757;   /* grey-600 (sub text) */
+    --accent: #eff6ff;             /* blue-50 (은은한 틴트) */
+    --accent-foreground: #333333;
+
+    --destructive: #f64b3b;        /* red-500 (에러/파괴적) */
+    --destructive-foreground: #ffffff;
+
+    --border: #e6e6e6;             /* grey-200 */
+    --input: #e6e6e6;
+    --ring: #3b82f6;               /* 포커스 = 브랜드 블루 */
+
+    --radius: 0.75rem;             /* 12px — 카드 기본 */
+}
+
+@theme inline {
+    --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Radius (DS: 8/12/16/20) */
+    --radius-sm: calc(var(--radius) - 4px);   /* 8 */
+    --radius-md: var(--radius);               /* 12 */
+    --radius-lg: calc(var(--radius) + 4px);   /* 16 */
+    --radius-xl: calc(var(--radius) + 8px);   /* 20 */
+
+    /* Shadow (DS: 딱 2개) */
+    --shadow-card: 0 4px 12px 0 rgba(15, 23, 42, 0.06);
+    --shadow-overlay: 0 10px 28px 0 rgba(0, 0, 0, 0.2);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+    }
+}

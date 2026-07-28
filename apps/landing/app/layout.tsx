@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
+import "@repo/ui/globals.css";
 
 export const metadata: Metadata = {
     title: "나날이 (Nanaly)",
