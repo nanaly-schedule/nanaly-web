@@ -28,7 +28,7 @@ export default function Footer() {
                     </div>
                     <nav className="flex items-center gap-5 text-[13px] font-medium text-muted-foreground">
                         <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">이용약관</a>
-                        <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">개인정보처리방침</a>
+                        <a href={PRIVACY_URL} className="transition-colors hover:text-foreground">개인정보처리방침</a>
                     </nav>
                     <p className="text-[13px] text-muted-foreground/80">© 2026 나날이. All rights reserved.</p>
                 </div>
