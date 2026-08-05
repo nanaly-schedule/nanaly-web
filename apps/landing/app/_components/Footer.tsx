@@ -1,6 +1,6 @@
 import { cn } from "@repo/ui/lib/utils";
 import { CONTAINER } from "@/lib/ui";
-import { TERMS_URL, PRIVACY_URL } from "@/lib/links";
+import { TERMS_URL, PRIVACY_URL, ACCOUNT_DELETION_URL } from "@/lib/links";
 
 export default function Footer() {
     return (
@@ -29,6 +29,7 @@ export default function Footer() {
                     <nav className="flex items-center gap-5 text-[13px] font-medium text-muted-foreground">
                         <a href={TERMS_URL} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">이용약관</a>
                         <a href={PRIVACY_URL} className="transition-colors hover:text-foreground">개인정보처리방침</a>
+                        <a href={ACCOUNT_DELETION_URL} className="transition-colors hover:text-foreground">계정 삭제 안내</a>
                     </nav>
                     <p className="text-[13px] text-muted-foreground/80">© 2026 나날이. All rights reserved.</p>
                 </div>
