@@ -2,6 +2,7 @@ import { cn } from '@repo/ui/lib/utils';
 import Image from 'next/image';
 import { CONTAINER } from '@/lib/ui';
 import Reveal from '@/app/_components/Reveal';
+import { ANDROID_STORE_URL, IOS_STORE_URL } from '@/lib/links';
 
 export default function Hero() {
   return (
@@ -48,7 +49,7 @@ export default function Hero() {
             className='mt-8 flex flex-wrap items-center justify-center gap-3 md:justify-start'
           >
             <a
-              href='https://play.google.com/store/apps/details?id=com.nanaly.app&hl=ko'
+              href={ANDROID_STORE_URL}
               aria-label='구글 앱스토어에서 나날이 다운로드'
               className='transition-transform hover:-translate-y-0.5'
             >
@@ -61,7 +62,7 @@ export default function Hero() {
               />
             </a>
             <a
-              href='https://apps.apple.com/kr/app/%EB%82%98%EB%82%A0%EC%9D%B4-%EA%B0%80%EA%B2%8C-%EC%8A%A4%EC%BC%80%EC%A4%84-%EA%B4%80%EB%A6%AC/id6762539107'
+              href={IOS_STORE_URL}
               aria-label='애플 앱스토어에서 나날이 다운로드'
               className='transition-transform hover:-translate-y-0.5'
             >
