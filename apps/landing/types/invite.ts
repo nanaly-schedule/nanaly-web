@@ -1,13 +1,18 @@
 export type InvitePreview = {
-  valid: boolean;
-  storeName?: string;
-  storeId?: string;
-  appLink?: string;
+  storeName: string;
   openApp?: boolean;
+  appLink?: string;
+};
+
+export type InvitePreviewError = {
+  statusCode: number;
+  errorCode: 'VALIDATION_FAILED';
+  message: string;
+  timestamp: string;
 };
 
 export type InviteFlowState =
   | { type: 'loading' }
   | { type: 'success'; data: InvitePreview }
-  | { type: 'expired' }
+  | { type: 'expired'; message: string }
   | { type: 'app' };

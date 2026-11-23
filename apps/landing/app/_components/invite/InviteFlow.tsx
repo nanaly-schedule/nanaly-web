@@ -1,7 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { InviteFlowState, InvitePreview } from '@/types/invite';
+import type {
+  InviteFlowState,
+  InvitePreview,
+  InvitePreviewError,
+} from '@/types/invite';
 import { createInviteAppLink } from '@/lib/links';
 import InviteState from './InviteState';
 
@@ -21,22 +25,22 @@ export default function InviteFlow({ inviteId }: { inviteId: string }) {
 
         if (cancelled) return;
 
-        if (!response.ok || !payload) {
-          setState({ type: 'expired' });
+        if (!response.ok) {
+          const error = payload as InvitePreviewError | null;
+          setState({
+            type: 'expired',
+            message: error?.message ?? '유효하지 않은 초대코드입니다',
+          });
           return;
         }
 
-        const data = payload.data ?? payload;
-        const preview: InvitePreview = {
-          valid: payload.valid ?? data.valid ?? true,
-          storeName: data.storeName ?? data.store?.name,
-          storeId: data.storeId ?? data.store?.id,
-          appLink: data.appLink,
-          openApp: data.openApp,
-        };
+        const preview = payload as InvitePreview | null;
 
-        if (!preview.valid) {
-          setState({ type: 'expired' });
+        if (!preview?.storeName) {
+          setState({
+            type: 'expired',
+            message: '유효하지 않은 초대코드입니다',
+          });
           return;
         }
 
@@ -49,7 +53,12 @@ export default function InviteFlow({ inviteId }: { inviteId: string }) {
 
         setState({ type: 'success', data: preview });
       } catch {
-        if (!cancelled) setState({ type: 'expired' });
+        if (!cancelled) {
+          setState({
+            type: 'expired',
+            message: '초대 정보를 확인할 수 없습니다',
+          });
+        }
       }
     }
 

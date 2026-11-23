@@ -145,9 +145,7 @@ export default function InviteState({
           만료된 초대 링크예요.
         </h1>
         <p className='mt-6 text-[17px] leading-[1.55] text-muted-foreground sm:text-[18px]'>
-          링크가 유효하지 않거나
-          <br />
-          이미 사용된 초대 링크예요.
+          {state.message}
         </p>
       </PageLayout>
     );
