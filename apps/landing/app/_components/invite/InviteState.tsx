@@ -123,26 +123,12 @@ export default function InviteState({
   inviteId: string;
   onOpenApp: (appLink: string) => void;
 }) {
-  if (state.type === 'loading') {
-    return (
-      <PageLayout>
-        <div
-          aria-label='초대 링크 확인 중'
-          className='size-12 animate-spin rounded-full border-4 border-[#e6edff] border-t-primary'
-        />
-        <p className='mt-5 text-base font-medium text-muted-foreground'>
-          초대 링크를 확인하고 있어요
-        </p>
-      </PageLayout>
-    );
-  }
-
   if (state.type === 'expired') {
     return (
       <PageLayout>
         <StatusIcon expired />
         <h1 className='mt-9 text-[22px] font-extrabold leading-tight tracking-[-0.02em] text-foreground sm:text-[24px]'>
-          만료된 초대 링크예요.
+          매장 인증에 실패했어요.
         </h1>
         <p className='mt-6 text-[17px] leading-[1.55] text-muted-foreground sm:text-[18px]'>
           {state.message}
@@ -176,7 +162,8 @@ export default function InviteState({
     );
   }
 
-  const preview: InvitePreview = state.data;
+  const preview: InvitePreview =
+    state.type === 'verifying' ? { storeName: '' } : state.data;
   const appLink = preview.appLink ?? createInviteAppLink(inviteId);
 
   return (
@@ -185,24 +172,37 @@ export default function InviteState({
       <h1 className='mt-9 text-[22px] font-extrabold leading-tight tracking-[-0.02em] text-foreground sm:text-[24px]'>
         매장 인증이 완료되었어요.
       </h1>
-      {preview.storeName && (
-        <p className='mt-3 text-base font-semibold text-primary'>
+      {state.type === 'verifying' ? (
+        <p className='mt-3 h-6 text-base font-semibold text-primary'>
+          초대링크를 확인 중이에요
+        </p>
+      ) : preview.storeName ? (
+        <p className='mt-3 h-6 text-base font-semibold text-primary'>
           {preview.storeName}
         </p>
-      )}
+      ) : null}
       <p className='mt-6 text-[17px] leading-[1.55] text-muted-foreground sm:text-[18px]'>
         지금부터 앱에서
         <br />
         매장 스케줄을 확인할 수 있어요.
       </p>
       <div className='mt-10 w-full px-8 sm:px-9'>
-        <button
-          type='button'
-          onClick={() => onOpenApp(appLink)}
-          className='flex h-14 w-full items-center justify-center rounded-2xl bg-primary px-6 text-[17px] font-semibold text-white shadow-[0_8px_18px_rgba(59,130,246,0.18)]'
-        >
-          앱으로 이동하기
-        </button>
+        {state.type === 'verifying' ? (
+          <div className='flex h-14 w-full items-center justify-center'>
+            <div
+              aria-label='매장 정보 확인 중'
+              className='size-10 animate-spin rounded-full border-4 border-[#e6edff] border-t-primary'
+            />
+          </div>
+        ) : (
+          <button
+            type='button'
+            onClick={() => onOpenApp(appLink)}
+            className='flex h-14 w-full items-center justify-center rounded-2xl bg-primary px-6 text-[17px] font-semibold text-white shadow-[0_8px_18px_rgba(59,130,246,0.18)]'
+          >
+            앱으로 이동하기
+          </button>
+        )}
         <StoreActions />
       </div>
     </PageLayout>

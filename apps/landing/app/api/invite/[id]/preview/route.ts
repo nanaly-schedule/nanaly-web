@@ -25,10 +25,7 @@ export async function GET(
     }
 
     if (id === '3') {
-      return NextResponse.json(
-        { storeName: '나날이 매장', openApp: true },
-        { status: 200 },
-      );
+      return NextResponse.json({ storeName: '나날이 매장' }, { status: 200 });
     }
 
     return NextResponse.json(

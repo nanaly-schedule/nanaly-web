@@ -12,7 +12,7 @@ export type InvitePreviewError = {
 };
 
 export type InviteFlowState =
-  | { type: 'loading' }
+  | { type: 'verifying'; data: InvitePreview }
   | { type: 'success'; data: InvitePreview }
   | { type: 'expired'; message: string }
   | { type: 'app' };
