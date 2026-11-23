@@ -172,15 +172,11 @@ export default function InviteState({
       <h1 className='mt-9 text-[22px] font-extrabold leading-tight tracking-[-0.02em] text-foreground sm:text-[24px]'>
         매장 인증이 완료되었어요.
       </h1>
-      {state.type === 'verifying' ? (
-        <p className='mt-3 h-6 text-base font-semibold text-primary'>
-          초대링크를 확인 중이에요
-        </p>
-      ) : preview.storeName ? (
-        <p className='mt-3 h-6 text-base font-semibold text-primary'>
-          {preview.storeName}
-        </p>
-      ) : null}
+      <p className='mt-3 h-6 text-base font-semibold text-primary'>
+        {state.type === 'verifying'
+          ? '초대링크를 확인 중이에요'
+          : preview.storeName}
+      </p>
       <p className='mt-6 text-[17px] leading-[1.55] text-muted-foreground sm:text-[18px]'>
         지금부터 앱에서
         <br />

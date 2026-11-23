@@ -8,34 +8,14 @@ export async function GET(
   const baseUrl = process.env.INVITE_API_BASE_URL?.replace(/\/$/, '');
 
   if (!baseUrl) {
-    if (id === '1') {
-      return NextResponse.json(
-        {
-          statusCode: 400,
-          errorCode: 'VALIDATION_FAILED',
-          message: '만료된 초대코드입니다',
-          timestamp: '2026-11-21T00:00:00.000Z',
-        },
-        { status: 400 },
-      );
-    }
-
-    if (id === '2') {
-      return NextResponse.json({ storeName: '나날이 매장' }, { status: 200 });
-    }
-
-    if (id === '3') {
-      return NextResponse.json({ storeName: '나날이 매장' }, { status: 200 });
-    }
-
     return NextResponse.json(
       {
-        statusCode: 400,
-        errorCode: 'VALIDATION_FAILED',
-        message: '유효하지 않은 초대코드입니다',
-        timestamp: '2026-11-21T00:00:00.000Z',
+        statusCode: 503,
+        errorCode: 'API_NOT_CONFIGURED',
+        message: '초대 정보를 확인할 수 없습니다',
+        timestamp: new Date().toISOString(),
       },
-      { status: 400 },
+      { status: 503 },
     );
   }
 
@@ -51,12 +31,25 @@ export async function GET(
 
     const payload = await response.json().catch(() => null);
 
-    return NextResponse.json(payload ?? { valid: false }, {
-      status: response.status,
-    });
+    return NextResponse.json(
+      payload ?? {
+        statusCode: response.status,
+        errorCode: 'VALIDATION_FAILED',
+        message: '유효하지 않은 초대코드입니다',
+        timestamp: new Date().toISOString(),
+      },
+      {
+        status: response.status,
+      },
+    );
   } catch {
     return NextResponse.json(
-      { valid: false, reason: 'API_UNAVAILABLE' },
+      {
+        statusCode: 502,
+        errorCode: 'API_UNAVAILABLE',
+        message: '초대 정보를 확인할 수 없습니다',
+        timestamp: new Date().toISOString(),
+      },
       { status: 502 },
     );
   }
